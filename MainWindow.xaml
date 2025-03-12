@@ -1,0 +1,252 @@
+﻿<Window x:Class="GamedayTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GamedayTracker"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:vm="clr-namespace:GamedayTracker.ViewModels"
+        xmlns:view="clr-namespace:GamedayTracker.Views"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        Height="650" Width="1000">
+   
+    <Border Background="{DynamicResource CardSecondaryColorBrush}" 
+            CornerRadius="12"
+            Height="630"
+            Width="980"
+            VerticalAlignment="Top">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="20"
+                              ShadowDepth="4"
+                              Color="Black"
+                              Direction="-90"
+                              Opacity=".6"/>
+        </Border.Effect>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+
+            <!-- #region TitleBar -->
+            <Border Grid.Column="0" 
+                    Grid.Row="0"
+                    Grid.ColumnSpan="5"
+                    Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                    CornerRadius="12 12 0 0"
+                    BorderBrush="{DynamicResource GreenColorBrush}"
+                    BorderThickness="0 1 0 0"
+                    MouseDown="UIElement_OnMouseDown">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="2"
+                                      ShadowDepth="2"
+                                      Direction="-90"
+                                      Color="Black"
+                                      Opacity=".5"/>
+                </Border.Effect>
+            <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" 
+                           Text="Gameday Tracker"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="{DynamicResource GreenColorBrush}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </Grid>
+            </Border>
+            <!-- #endregion -->
+
+            <!-- #region Left NavBar -->
+            <Border Grid.Column="0"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Grid.RowSpan="2"
+                    Background="{DynamicResource GreenColorBrush}"
+                    Margin="1 2 0 0"
+                    BorderBrush="Black"
+                    BorderThickness="0 0 1 0">
+                <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="259" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                    <!-- #region HOME -->
+                    <Button Grid.Row="0"
+                            Height="48"
+                            VerticalAlignment="Top"
+                            Command="{Binding NavigateHomeCommand}">
+                        <Grid Width="100"
+                              Margin="10 0 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <md:PackIcon Grid.Column="0"
+                                         HorizontalAlignment="Left"
+                                         Kind="Home" 
+                                         Foreground="{DynamicResource Primary200ColorBrush}"
+                                         Width="20"
+                                         Height="20"
+                                         Margin="0 0 10 0"/>
+                                <TextBlock Grid.Column="1"
+                                           Text="HOME" 
+                                           Foreground="{DynamicResource Primary200ColorBrush}"
+                                           FontSize="14"
+                                           VerticalAlignment="Center"
+                                           Margin="10 0 0 0"/>
+                            </Grid>
+                    </Button>
+                    <!-- #endregion -->
+
+                    <!-- #region PLAYERS -->
+                    <Button Grid.Row="1"
+                            Height="48"
+                            VerticalAlignment="Top"
+                            Command="{Binding NavigateNewPlayerViewCommand}">
+                        <Grid Width="100"
+                              Margin="10 0 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <md:PackIcon Grid.Column="0"
+                                         HorizontalAlignment="Left"
+                                         Kind="PersonArrowRight" 
+                                         Foreground="{DynamicResource Primary200ColorBrush}"
+                                         Width="20"
+                                         Height="20"
+                                         Margin="0 0 10 0"/>
+                            <TextBlock Grid.Column="1"
+                                       Text="PLAYERS" 
+                                       Foreground="{DynamicResource Primary200ColorBrush}"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0"/>
+                        </Grid>
+                    </Button>
+                    <!-- #endregion -->
+
+                    <!-- #region SCORES -->
+                    <Button Grid.Row="2"
+                            Height="48"
+                            VerticalAlignment="Top">
+                        <Grid Width="100"
+                              Margin="10 0 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <md:PackIcon Grid.Column="0"
+                                         HorizontalAlignment="Left"
+                                         Kind="Scoreboard" 
+                                         Foreground="{DynamicResource Primary200ColorBrush}"
+                                         Width="20"
+                                         Height="20"
+                                         Margin="0 0 10 0"/>
+                            <TextBlock Grid.Column="1"
+                                       Text="SCORES" 
+                                       Foreground="{DynamicResource Primary200ColorBrush}"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0"/>
+                        </Grid>
+                    </Button>
+                    <!-- #endregion -->
+
+                    <!-- #region BLANK -->
+                    <Button Grid.Row="3"
+                            Height="48"
+                            VerticalAlignment="Top"
+                            IsEnabled="False">
+                        <Grid Width="100"
+                              Margin="10 0 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </Button>
+                    <!-- #endregion -->
+                    <!-- #region BLANK -->
+                    <Button Grid.Row="4"
+                            Height="48"
+                            VerticalAlignment="Top"
+                            IsEnabled="False">
+                        <Grid Width="100"
+                              Margin="10 0 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </Button>
+                    <!-- #endregion -->
+
+                    <!-- #region SETTINGS -->
+                    <Button Grid.Row="6"
+                            Height="48"
+                            VerticalAlignment="Top">
+                        <Grid Width="100"
+                              Margin="10 0 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <md:PackIcon Grid.Column="0"
+                                         HorizontalAlignment="Center"
+                                         Kind="Settings" 
+                                         Foreground="{DynamicResource Primary200ColorBrush}"
+                                         Width="30"
+                                         Height="30"
+                                         Margin="0 0 10 0"/>
+                        </Grid>
+                    </Button>
+                    <!-- #endregion -->
+
+                </Grid>
+            </Border>
+            <!-- #endregion -->
+            
+            <!-- #region Content -->
+            <ContentControl Grid.Column="2"
+                            Grid.Row="2"
+                            Content="{Binding SelectedViewModel}"
+                            Margin="20">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type vm:NewPlayerViewModel}">
+                        <view:NewPlayerView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+                        <view:HomeView />
+                    </DataTemplate>
+                </ContentControl.Resources>
+
+            </ContentControl>
+            <!-- #endregion -->
+
+        </Grid>
+        
+    </Border>
+</Window>
