@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="Helpers\" />
+    <Folder Include="Converters\" />
     <Folder Include="Theme\Dark\" />
     <Folder Include="Theme\Light\" />
     <Folder Include="Utilities\" />
