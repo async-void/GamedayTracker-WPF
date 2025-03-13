@@ -43,7 +43,7 @@
             <!-- #region TitleBar -->
             <Border Grid.Column="0" 
                     Grid.Row="0"
-                    Grid.ColumnSpan="5"
+                    Grid.ColumnSpan="4"
                     Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
                     CornerRadius="12 12 0 0"
                     BorderBrush="{DynamicResource GreenColorBrush}"
@@ -69,6 +69,20 @@
                            Foreground="{DynamicResource GreenColorBrush}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
+                    <Button Grid.Column="2" 
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        HorizontalAlignment="Right"
+                        Cursor="Hand"
+                        Click="ButtonBase_OnClick">
+                        <Button.Content>
+                            <md:PackIcon Kind="Power" 
+                                         Foreground="{DynamicResource GreenColorBrush}"
+                                         Height="26"
+                                         Width="26"/>
+                        </Button.Content>
+                        
+                    </Button>
             </Grid>
             </Border>
             <!-- #endregion -->
@@ -78,7 +92,7 @@
                     Grid.Row="1"
                     Grid.ColumnSpan="2"
                     Grid.RowSpan="2"
-                    Background="{DynamicResource GreenColorBrush}"
+                    Background="{DynamicResource CardSecondaryColorBrush}"
                     Margin="1 2 0 0"
                     BorderBrush="Black"
                     BorderThickness="0 0 1 0">
@@ -97,7 +111,10 @@
                     <Button Grid.Row="0"
                             Height="48"
                             VerticalAlignment="Top"
-                            Command="{Binding NavigateHomeCommand}">
+                            Command="{Binding NavigateHomeCommand}"
+                            Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                            BorderBrush="{DynamicResource Primary200ColorBrush}"
+                            BorderThickness="1 1 1 0">
                         <Grid Width="100"
                               Margin="10 0 0 0">
                             <Grid.ColumnDefinitions>
@@ -107,14 +124,15 @@
                             <md:PackIcon Grid.Column="0"
                                          HorizontalAlignment="Left"
                                          Kind="Home" 
-                                         Foreground="{DynamicResource Primary200ColorBrush}"
+                                         Foreground="{DynamicResource GreenColorBrush}"
                                          Width="20"
                                          Height="20"
                                          Margin="0 0 10 0"/>
                                 <TextBlock Grid.Column="1"
                                            Text="HOME" 
-                                           Foreground="{DynamicResource Primary200ColorBrush}"
+                                           Foreground="{DynamicResource GreenColorBrush}"
                                            FontSize="14"
+                                           FontWeight="Normal"
                                            VerticalAlignment="Center"
                                            Margin="10 0 0 0"/>
                             </Grid>
@@ -125,7 +143,10 @@
                     <Button Grid.Row="1"
                             Height="48"
                             VerticalAlignment="Top"
-                            Command="{Binding NavigateNewPlayerViewCommand}">
+                            Command="{Binding NavigatePlayersViewCommand}"
+                            Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                            BorderBrush="{DynamicResource Primary200ColorBrush}"
+                            BorderThickness="1 1 1 0">
                         <Grid Width="100"
                               Margin="10 0 0 0">
                             <Grid.ColumnDefinitions>
@@ -135,14 +156,15 @@
                             <md:PackIcon Grid.Column="0"
                                          HorizontalAlignment="Left"
                                          Kind="PersonArrowRight" 
-                                         Foreground="{DynamicResource Primary200ColorBrush}"
+                                         Foreground="{DynamicResource GreenColorBrush}"
                                          Width="20"
                                          Height="20"
                                          Margin="0 0 10 0"/>
                             <TextBlock Grid.Column="1"
                                        Text="PLAYERS" 
-                                       Foreground="{DynamicResource Primary200ColorBrush}"
+                                       Foreground="{DynamicResource GreenColorBrush}"
                                        FontSize="14"
+                                       FontWeight="Normal"
                                        VerticalAlignment="Center"
                                        Margin="10 0 0 0"/>
                         </Grid>
@@ -152,7 +174,10 @@
                     <!-- #region SCORES -->
                     <Button Grid.Row="2"
                             Height="48"
-                            VerticalAlignment="Top">
+                            VerticalAlignment="Top"
+                            Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                            BorderBrush="{DynamicResource Primary200ColorBrush}"
+                            BorderThickness="1 1 1 0">
                         <Grid Width="100"
                               Margin="10 0 0 0">
                             <Grid.ColumnDefinitions>
@@ -162,14 +187,15 @@
                             <md:PackIcon Grid.Column="0"
                                          HorizontalAlignment="Left"
                                          Kind="Scoreboard" 
-                                         Foreground="{DynamicResource Primary200ColorBrush}"
+                                         Foreground="{DynamicResource GreenColorBrush}"
                                          Width="20"
                                          Height="20"
                                          Margin="0 0 10 0"/>
                             <TextBlock Grid.Column="1"
                                        Text="SCORES" 
-                                       Foreground="{DynamicResource Primary200ColorBrush}"
+                                       Foreground="{DynamicResource GreenColorBrush}"
                                        FontSize="14"
+                                       FontWeight="Normal"
                                        VerticalAlignment="Center"
                                        Margin="10 0 0 0"/>
                         </Grid>
@@ -180,6 +206,9 @@
                     <Button Grid.Row="3"
                             Height="48"
                             VerticalAlignment="Top"
+                            Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                            BorderBrush="{DynamicResource Primary200ColorBrush}"
+                            BorderThickness="1 1 1 0"
                             IsEnabled="False">
                         <Grid Width="100"
                               Margin="10 0 0 0">
@@ -194,6 +223,9 @@
                     <Button Grid.Row="4"
                             Height="48"
                             VerticalAlignment="Top"
+                            Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                            BorderBrush="{DynamicResource Primary200ColorBrush}"
+                            BorderThickness="1 1 1 0"
                             IsEnabled="False">
                         <Grid Width="100"
                               Margin="10 0 0 0">
@@ -208,7 +240,10 @@
                     <!-- #region SETTINGS -->
                     <Button Grid.Row="6"
                             Height="48"
-                            VerticalAlignment="Top">
+                            VerticalAlignment="Top"
+                            Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                            BorderBrush="{DynamicResource Primary200ColorBrush}"
+                            BorderThickness="1 1 1 0">
                         <Grid Width="100"
                               Margin="10 0 0 0">
                             <Grid.ColumnDefinitions>
@@ -217,7 +252,7 @@
                             <md:PackIcon Grid.Column="0"
                                          HorizontalAlignment="Center"
                                          Kind="Settings" 
-                                         Foreground="{DynamicResource Primary200ColorBrush}"
+                                         Foreground="{DynamicResource GreenColorBrush}"
                                          Width="30"
                                          Height="30"
                                          Margin="0 0 10 0"/>
@@ -233,13 +268,16 @@
             <ContentControl Grid.Column="2"
                             Grid.Row="2"
                             Content="{Binding SelectedViewModel}"
-                            Margin="20">
+                            Margin="10 0  10 0">
                 <ContentControl.Resources>
                     <DataTemplate DataType="{x:Type vm:NewPlayerViewModel}">
                         <view:NewPlayerView />
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type vm:HomeViewModel}">
                         <view:HomeView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:PlayersViewModel}">
+                        <view:PlayersView />
                     </DataTemplate>
                 </ContentControl.Resources>
 
