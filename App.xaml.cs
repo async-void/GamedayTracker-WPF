@@ -23,8 +23,8 @@ namespace GamedayTracker
             _host = Host.CreateDefaultBuilder().ConfigureServices(services =>
             {
                 services.AddSingleton<AppViewModel>();
+                services.AddSingleton<AppDbContextFactory>();
                 services.AddSingleton<INavigator, Navigator>();
-                services.AddScoped<AppDbContextFactory>();
                 services.AddSingleton<IDataProvider, DataServiceProvider>();
                 services.AddSingleton<MainWindow>(s => new MainWindow()
                 {

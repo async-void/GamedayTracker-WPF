@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Migrations\" />
     <Folder Include="Helpers\" />
     <Folder Include="Converters\" />
     <Folder Include="Theme\Dark\" />
@@ -36,7 +37,7 @@
 
   <ItemGroup>
     <None Update="Data\Json\config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

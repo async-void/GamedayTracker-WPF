@@ -6,13 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GamedayTracker.Interfaces;
+using GamedayTracker.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace GamedayTracker.Factories
 {
-    public class AppDbContextFactory(IDataProvider dataProvider) : IDesignTimeDbContextFactory<AppDbContext>
+    public class AppDbContextFactory: IDesignTimeDbContextFactory<AppDbContext>
     {
-        private readonly IDataProvider _dataProvider = dataProvider;
+        private readonly IDataProvider _dataProvider = new DataServiceProvider();
         public AppDbContext CreateDbContext(string[]? args = null)
         {
             var conStr = _dataProvider.GetConnectionString();
@@ -20,5 +21,6 @@ namespace GamedayTracker.Factories
             options.UseNpgsql(conStr.Value);
             return new AppDbContext(options.Options);
         }
+
     }
 }

@@ -270,14 +270,14 @@
                             Content="{Binding SelectedViewModel}"
                             Margin="10 0  10 0">
                 <ContentControl.Resources>
-                    <DataTemplate DataType="{x:Type vm:NewPlayerViewModel}">
-                        <view:NewPlayerView />
-                    </DataTemplate>
                     <DataTemplate DataType="{x:Type vm:HomeViewModel}">
                         <view:HomeView />
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type vm:PlayersViewModel}">
                         <view:PlayersView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:NewPlayerViewModel}">
+                        <view:NewPlayerView />
                     </DataTemplate>
                 </ContentControl.Resources>
 

@@ -1,0 +1,83 @@
+﻿<UserControl
+    x:Class="GamedayTracker.Components.SinglePlayerRowItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:GamedayTracker.Components"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="720"
+    Height="50"
+    Padding="0"
+    Margin="0"
+    mc:Ignorable="d">
+    <Border Background="{DynamicResource PrimaryToSecondaryGradientBrush}" 
+            CornerRadius="6"
+            BorderBrush="{DynamicResource Primary300ColorBrush}"
+            BorderThickness=".75"
+            Margin="0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="120" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+            </Grid>
+            <!--#region PLAYER INFO-->
+
+            <!--#endregion-->
+
+            <!--#region COMMAND BUTTONS-->
+            <StackPanel Grid.Column="2" 
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0 0 10 0">
+                <Button
+                    Width="34"
+                    Height="30"
+                    Background="{DynamicResource Primary200ColorBrush}"
+                    BorderBrush="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                    FontSize="10"
+                    Padding="0"
+                    Foreground="{DynamicResource Primary200ColorBrush}"
+                    Margin="2 0">
+                    <md:PackIcon Kind="AddToPhotos" 
+                                 Foreground="{DynamicResource GreenColorBrush}"
+                                 Width="20"
+                                 Height="20"/>
+                </Button>
+                <Button
+                    Width="34"
+                    Height="30"
+                    Background="{DynamicResource Primary200ColorBrush}"
+                    BorderBrush="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                    FontSize="10"
+                    Padding="0"
+                    Margin="0 0 2 0">
+                    <md:PackIcon Kind="Edit" 
+                                 Foreground="{DynamicResource GreenColorBrush}"
+                                 Width="20"
+                                 Height="20"/>
+                </Button>
+                <Button
+                    Width="34"
+                    Height="30"
+                    Background="{DynamicResource Primary200ColorBrush}"
+                    BorderBrush="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                    FontSize="10"
+                    Padding="0">
+                    <md:PackIcon Kind="Cancel" 
+                                 Foreground="{DynamicResource GreenColorBrush}"
+                                 Width="20"
+                                 Height="20"/>
+                </Button>
+            </StackPanel>
+            <!--#endregion-->
+        </Grid>
+    </Border>
+</UserControl>

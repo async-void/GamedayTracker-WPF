@@ -19,7 +19,7 @@ namespace GamedayTracker.Services
             var json = File.ReadAllText(path);
             var conStr = JsonSerializer.Deserialize<ConfigJson>(json);
 
-            if (conStr == null)
+            if (conStr != null)
             { 
                 return Result<string, SystemError<DataServiceProvider>>.Ok(conStr!.ConnectionString!);
             }
