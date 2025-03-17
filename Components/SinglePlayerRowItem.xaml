@@ -4,18 +4,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:GamedayTracker.Components"
-    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
     Width="720"
     Height="50"
-    Padding="0"
     Margin="0"
+    Padding="0"
     mc:Ignorable="d">
-    <Border Background="{DynamicResource PrimaryToSecondaryGradientBrush}" 
-            CornerRadius="6"
-            BorderBrush="{DynamicResource Primary300ColorBrush}"
-            BorderThickness=".75"
-            Margin="0">
+    <Border
+        Margin="0"
+        VerticalAlignment="Top"
+        Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
+        BorderBrush="{DynamicResource Primary300ColorBrush}"
+        BorderThickness=".75"
+        CornerRadius="6">
+        <Border.Effect>
+            <DropShadowEffect
+                BlurRadius="2"
+                Direction="-90"
+                Opacity=".5"
+                ShadowDepth="2"
+                Color="Black" />
+        </Border.Effect>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10" />
@@ -28,53 +38,131 @@
                     <RowDefinition Height="20" />
                 </Grid.RowDefinitions>
             </Grid>
-            <!--#region PLAYER INFO-->
 
+            <!--#region PLAYER INFO-->
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--#region PLAYER NAME-->
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Grid.Row="0"
+                        Margin="10,0"
+                        VerticalAlignment="Bottom"
+                        FontSize="8"
+                        Foreground="{DynamicResource Primary300ColorBrush}"
+                        Text="Player Name" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Margin="10,0"
+                        FontSize="14"
+                        Foreground="{DynamicResource GreenColorBrush}"
+                        Text="{Binding Path=Name, FallbackValue=Playername}" />
+                </Grid>
+                <!--#endregion-->
+
+                <!--#region COMPANY-->
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Grid.Row="0"
+                        Margin="10,0"
+                        VerticalAlignment="Bottom"
+                        FontSize="8"
+                        Foreground="{DynamicResource Primary300ColorBrush}"
+                        Text="Company" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Margin="10,0"
+                        FontSize="14"
+                        Foreground="{DynamicResource GreenColorBrush}"
+                        Text="{Binding Path=Company, FallbackValue=Company}" />
+                </Grid>
+                <!--#endregion-->
+
+                <!--#region WINS-->
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Grid.Row="0"
+                        Margin="10,0"
+                        VerticalAlignment="Bottom"
+                        FontSize="8"
+                        Foreground="{DynamicResource Primary300ColorBrush}"
+                        Text="Wins" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Margin="10,0"
+                        FontSize="14"
+                        Foreground="{DynamicResource GreenColorBrush}"
+                        Text="{Binding Path=Picks.Wins, FallbackValue=Wins}" />
+                </Grid>
+                <!--#endregion-->
+
+            </Grid>
             <!--#endregion-->
 
             <!--#region COMMAND BUTTONS-->
-            <StackPanel Grid.Column="2" 
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Center"
-                        Margin="0 0 10 0">
+            <StackPanel
+                Grid.Column="2"
+                Margin="0,0,10,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
                 <Button
                     Width="34"
                     Height="30"
+                    Margin="2,0"
+                    Padding="0"
                     Background="{DynamicResource Primary200ColorBrush}"
                     BorderBrush="{DynamicResource PrimaryToSecondaryGradientBrush}"
                     FontSize="10"
-                    Padding="0"
-                    Foreground="{DynamicResource Primary200ColorBrush}"
-                    Margin="2 0">
-                    <md:PackIcon Kind="AddToPhotos" 
-                                 Foreground="{DynamicResource GreenColorBrush}"
-                                 Width="20"
-                                 Height="20"/>
+                    Foreground="{DynamicResource Primary200ColorBrush}">
+                    <md:PackIcon
+                        Width="20"
+                        Height="20"
+                        Foreground="{DynamicResource GreenColorBrush}"
+                        Kind="AddToPhotos" />
                 </Button>
                 <Button
                     Width="34"
                     Height="30"
+                    Margin="0,0,2,0"
+                    Padding="0"
                     Background="{DynamicResource Primary200ColorBrush}"
                     BorderBrush="{DynamicResource PrimaryToSecondaryGradientBrush}"
-                    FontSize="10"
-                    Padding="0"
-                    Margin="0 0 2 0">
-                    <md:PackIcon Kind="Edit" 
-                                 Foreground="{DynamicResource GreenColorBrush}"
-                                 Width="20"
-                                 Height="20"/>
+                    FontSize="10">
+                    <md:PackIcon
+                        Width="20"
+                        Height="20"
+                        Foreground="{DynamicResource GreenColorBrush}"
+                        Kind="Edit" />
                 </Button>
                 <Button
                     Width="34"
                     Height="30"
+                    Padding="0"
                     Background="{DynamicResource Primary200ColorBrush}"
                     BorderBrush="{DynamicResource PrimaryToSecondaryGradientBrush}"
-                    FontSize="10"
-                    Padding="0">
-                    <md:PackIcon Kind="Cancel" 
-                                 Foreground="{DynamicResource GreenColorBrush}"
-                                 Width="20"
-                                 Height="20"/>
+                    FontSize="10">
+                    <md:PackIcon
+                        Width="20"
+                        Height="20"
+                        Foreground="{DynamicResource GreenColorBrush}"
+                        Kind="Cancel" />
                 </Button>
             </StackPanel>
             <!--#endregion-->

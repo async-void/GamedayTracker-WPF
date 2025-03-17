@@ -119,9 +119,13 @@ namespace GamedayTracker.Data.Migrations
                     b.Property<int>("Week")
                         .HasColumnType("integer");
 
+                    b.Property<int>("Wins")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("PlayerId");
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
 
                     b.ToTable("PlayerPicks");
                 });
@@ -192,8 +196,8 @@ namespace GamedayTracker.Data.Migrations
             modelBuilder.Entity("GamedayTracker.Models.PlayerPicks", b =>
                 {
                     b.HasOne("GamedayTracker.Models.Player", "Player")
-                        .WithMany("Picks")
-                        .HasForeignKey("PlayerId")
+                        .WithOne("Picks")
+                        .HasForeignKey("GamedayTracker.Models.PlayerPicks", "PlayerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

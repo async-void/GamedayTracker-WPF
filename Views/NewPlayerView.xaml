@@ -23,31 +23,98 @@
             <RowDefinition Height="60" />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="1"
-                   Grid.Row="0" 
-                   Text="Add New Player"
-                   Foreground="{DynamicResource GreenColorBrush}"
-                   FontSize="18"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center">
-            <TextBlock.Effect>
-                <DropShadowEffect BlurRadius="6"
-                                  ShadowDepth="2"
-                                  Direction="-90"
-                                  Color="Black"
-                                  Opacity=".5"/>
-            </TextBlock.Effect>
-        </TextBlock>
-        <TextBox Style="{DynamicResource MaterialDesignFloatingHintTextBox}" 
-                 Grid.Column="1"
-                 Grid.Row="1"
-                 md:HintAssist.Hint="Player Name"
-                 Foreground="{DynamicResource GreenColorBrush}"/>
-        <TextBox Style="{DynamicResource MaterialDesignFloatingHintTextBox}" 
-                 Grid.Column="1"
-                 Grid.Row="2"
-                 md:HintAssist.Hint="Company Name"
-                 Foreground="{DynamicResource GreenColorBrush}"/>
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="1"
+            Orientation="Horizontal">
+
+            <!--#region BACK BUTTON-->
+            <Button
+                Grid.Column="1"
+                Width="30"
+                Height="30"
+                Padding="0"
+                HorizontalAlignment="Left"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Command="{Binding NavigateBackCommand}">
+                <md:PackIcon
+                    Width="30"
+                    Height="30"
+                    Foreground="{DynamicResource GreenColorBrush}"
+                    Kind="ArrowBack" />
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4"
+                                      ShadowDepth="2"
+                                      Direction="-90"
+                                      Color="Black"
+                                      Opacity=".7"/>
+                </Button.Effect>
+            </Button>
+            <!--#endregion-->
+
+            <TextBlock
+                Margin="74,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="{DynamicResource GreenColorBrush}"
+                Text="Add New Player">
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                        BlurRadius="6"
+                        Direction="-90"
+                        Opacity=".5"
+                        ShadowDepth="2"
+                        Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
+        </StackPanel>
+
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
+            md:HintAssist.Hint="Player Name"
+            Foreground="{DynamicResource GreenColorBrush}"
+            Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+        <TextBox
+            Grid.Row="2"
+            Grid.Column="1"
+            md:HintAssist.Hint="Company Name"
+            Foreground="{DynamicResource GreenColorBrush}"
+            Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+
+        <!-- #region COMMAND BUTTONS -->
+        <StackPanel Grid.Column="1"
+                    Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Width="46"
+                    Height="36"
+                    Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                    BorderBrush="Transparent"
+                    Padding="0"
+                    Command="{Binding SavePlayerCommand}">
+                <md:PackIcon Kind="ContentSave" 
+                             Width="30"
+                             Height="30"
+                             Foreground="{DynamicResource GreenToLiteGreenGradientBrush}"/>
+            </Button>
+            <Button Width="46"
+                    Height="36"
+                    Background="{DynamicResource PrimaryToSecondaryGradientBrush}"
+                    BorderBrush="Transparent"
+                    Padding="0"
+                    Margin="5"
+                    Command="{Binding CancelCommand}">
+                <md:PackIcon Kind="CancelBold" 
+                             Width="30"
+                             Height="30"
+                             Foreground="{DynamicResource LightRedToLightOrangeGradientBrush}"/>
+            </Button>
+        </StackPanel>
+        <!-- #region -->
+
     </Grid>
 </UserControl>

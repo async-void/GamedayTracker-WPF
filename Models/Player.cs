@@ -8,6 +8,6 @@ namespace GamedayTracker.Models
         public int Id { get; set; }
         public required string Name { get; set; }
         public required string Company { get; set; }
-        public virtual ICollection<PlayerPicks>? Picks { get; set; }
+        public PlayerPicks? Picks { get; set; }
     }
 }

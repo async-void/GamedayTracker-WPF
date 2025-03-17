@@ -35,7 +35,7 @@ namespace GamedayTracker.ViewModels
             _dbFactory = dbFactory;
             _navigator!.CurrentViewModelChanged += OnSelectedViewModelChanged;
             NavigateAddNewPlayerCommand = new NavigateCommand<NewPlayerViewModel>(_navigator, () => new NewPlayerViewModel(_navigator, _dbFactory));
-            _players = [];
+            Players = [];
             LoadPlayers();
         }
 
@@ -48,12 +48,21 @@ namespace GamedayTracker.ViewModels
         {
             for (int i = 0; i < 10; i++)
             {
+                var picks = new PlayerPicks()
+                {
+                    Season = 2024,
+                    Week = i + 1,
+                    Player = null,
+                    Picks = ["Team 1", "Team 2", "Team 3"],
+                    Wins = i + 1
+                };
                 var player = new Player
                 {
-                    Name = "Test " + i,
-                    Company = "Company " + i
+                    Name = "Test " + i + 1,
+                    Company = "Company " + i + 1,
+                    Picks = picks
                 };
-                _players.Add(player);
+                Players!.Add(player);
             }
         }
     }

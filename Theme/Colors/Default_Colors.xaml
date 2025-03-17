@@ -1,4 +1,8 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf">
 
     <!--  Colors  -->
     <Color x:Key="Primary">#1a1a1a</Color>
@@ -114,6 +118,5 @@
         <GradientStop Offset="0.0" Color="{StaticResource LightRed}" />
         <GradientStop Offset="1.0" Color="{StaticResource LightOrange}" />
     </LinearGradientBrush>
-    <!--  End CardSecondaryToPrimaryGradientBrush  -->
 
 </ResourceDictionary>

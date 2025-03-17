@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GamedayTracker.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250315163203_Initial")]
+    [Migration("20250317072935_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -122,9 +122,13 @@ namespace GamedayTracker.Data.Migrations
                     b.Property<int>("Week")
                         .HasColumnType("integer");
 
+                    b.Property<int>("Wins")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("PlayerId");
+                    b.HasIndex("PlayerId")
+                        .IsUnique();
 
                     b.ToTable("PlayerPicks");
                 });
@@ -195,8 +199,8 @@ namespace GamedayTracker.Data.Migrations
             modelBuilder.Entity("GamedayTracker.Models.PlayerPicks", b =>
                 {
                     b.HasOne("GamedayTracker.Models.Player", "Player")
-                        .WithMany("Picks")
-                        .HasForeignKey("PlayerId")
+                        .WithOne("Picks")
+                        .HasForeignKey("GamedayTracker.Models.PlayerPicks", "PlayerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

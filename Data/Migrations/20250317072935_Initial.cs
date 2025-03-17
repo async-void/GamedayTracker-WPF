@@ -68,6 +68,7 @@ namespace GamedayTracker.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Season = table.Column<int>(type: "integer", nullable: false),
                     Week = table.Column<int>(type: "integer", nullable: false),
+                    Wins = table.Column<int>(type: "integer", nullable: false),
                     Picks = table.Column<List<string>>(type: "text[]", nullable: true),
                     PlayerId = table.Column<int>(type: "integer", nullable: false)
                 },
@@ -134,7 +135,8 @@ namespace GamedayTracker.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_PlayerPicks_PlayerId",
                 table: "PlayerPicks",
-                column: "PlayerId");
+                column: "PlayerId",
+                unique: true);
         }
 
         /// <inheritdoc />

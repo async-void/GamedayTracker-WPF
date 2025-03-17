@@ -11,6 +11,7 @@ namespace GamedayTracker.Models
         public int Id { get; set; }
         public int Season { get; set; }
         public int Week { get; set; }
+        public int Wins { get; set; }
         public List<string>? Picks { get; set; }
         public int PlayerId { get; set; }
         public Player? Player { get; set; }
